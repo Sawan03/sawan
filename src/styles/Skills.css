@@ -1,0 +1,113 @@
+.skills-section {
+  padding: 40px 20px;
+  background-color: #1d1e22;
+  color: white;
+  font-family: 'Courier New', monospace;
+  position: relative;
+}
+
+.skills-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: white;
+  border-bottom: 1px solid #444;
+}
+
+.skills-section .hashtag {
+  color: #a491e6;
+}
+
+/* Main skill area */
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Background visuals */
+.bg-squares {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.dot-grid {
+  width: 80px;
+  height: 80px;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.2;
+  margin-bottom: 20px;
+}
+
+.dot-grid.small {
+  width: 60px;
+  height: 60px;
+}
+
+.box {
+  border: 1px solid #999;
+  width: 60px;
+  height: 60px;
+  margin: 20px 0;
+}
+
+.box1 {
+  margin-left: 50px;
+}
+
+.box2 {
+  width: 30px;
+  height: 30px;
+}
+
+.overlap-box {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #a491e6;
+  position: absolute;
+  top: 120px;
+  left: 10px;
+  box-shadow: -20px 20px 0 0 #a491e6;
+}
+
+/* Skills boxes */
+.skills-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  flex: 2;
+  min-width: 280px;
+}
+
+.skill-card {
+  border: 1px solid #666;
+  padding: 15px;
+  background-color: #2b2c31;
+  border-radius: 5px;
+}
+
+.skill-card h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.skill-card p {
+  font-size: 0.85rem;
+  color: #bbb;
+  word-wrap: break-word;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-container {
+    flex-direction: column;
+  }
+
+  .skills-boxes {
+    grid-template-columns: 1fr;
+  }
+}
