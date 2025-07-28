@@ -6,7 +6,7 @@ const projects = [
   title: 'BuyLogie',
   description: 'BuyLogie is a digital marketing agency website built using HTML, CSS, and JavaScript, and deployed via Hostinger hPanel.',
   techStack: ['HTML', 'CSS', 'JavaScript'],
-  image: '/buylogic.png', // Replace with actual homepage image URL if available
+  image: '/buylogic.png.png', // Replace with actual homepage image URL if available
   live: 'https://buylogie.com/',
   cached: '#',
 },
