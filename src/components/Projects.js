@@ -2,14 +2,14 @@ import React from 'react';
 import '../styles/Projects.css'; // Adjust path as needed
 
 const projects = [
-  {
-    title: 'Craft&Decors',
-    description: 'Craft&Decors is a website  sells handmade crafts and home decor items.',
-    techStack: ['HTML', 'CSS', 'Python', 'Flask', 'JavaScript', 'Bootstrap','DynamoDB', 'AWS','S3'],
-    image: 'https://craftndecor.in/cdn/shop/files/2_ba59174f-5054-467a-a4b5-d7f8c78cdefe.jpg?v=1748808627',
-    live: 'https://www.craftndecors.com/',
-    cached: '#',
-  },
+{
+  title: 'BuyLogie',
+  description: 'BuyLogie is a digital marketing agency website built using HTML, CSS, and JavaScript, and deployed via Hostinger hPanel.',
+  techStack: ['HTML', 'CSS', 'JavaScript'],
+  image: '/buylogic.png', // Replace with actual homepage image URL if available
+  live: 'https://buylogie.com/',
+  cached: '#',
+},
  
   {
     title: 'Manan',
