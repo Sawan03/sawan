@@ -54,7 +54,7 @@ const LandingPage = () => {
           <img src="/sawan.jpeg" alt="Sawan Profile" />
           <div className="working-status">
             {/* --- UPDATED COMPANY HERE --- */}
-            <span className="dot" /> Currently working on <span className="bold">Vigisolvo</span>
+            <span className="dot" /> Currently working With <span className="bold">Vigisolvo</span>
           </div>
         </div>
       </div>
