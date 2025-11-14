@@ -31,7 +31,8 @@ const LandingPage = () => {
         <div className="hero-text">
           <h1>
             I'm <span className="highlight1">Sawan Rathore</span>,<br />
-            a <span className="highlight2">Full-Stack Developer</span> &<br />
+            {/* --- UPDATED ROLE HERE --- */}
+            a <span className="highlight2">Full Stack Python Developer</span> &<br />
             <span className="highlight1">Freelancer</span>
           </h1>
           <p className="subtext">
@@ -52,7 +53,8 @@ const LandingPage = () => {
         <div className="hero-image">
           <img src="/sawan.jpeg" alt="Sawan Profile" />
           <div className="working-status">
-            <span className="dot" /> Currently working on <span className="bold">Xenturalt Code It solutions</span>
+            {/* --- UPDATED COMPANY HERE --- */}
+            <span className="dot" /> Currently working on <span className="bold">Vigisolvo</span>
           </div>
         </div>
       </div>
