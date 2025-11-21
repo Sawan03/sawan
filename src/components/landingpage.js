@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/LandingPage.css';
+// You will need to import icons or use simple emojis as placeholders if you don't have an icon library installed
+// import { FaBriefcase, FaCalendarAlt } from 'react-icons/fa'; 
 
 const LandingPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +12,50 @@ const LandingPage = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  // You can add more roles here
   const roles = [
     "Full Stack Python Developer", 
     "Freelancer", 
     "Django & React Enthusiast", 
     "Tech Content Creator"
+  ];
+
+  // --- Experience Data ---
+  const experiences = [
+    {
+      id: 1,
+      role: "Python Developer (Full Stack)",
+      company: "Vigisolvo",
+      date: "Nov 2025 – Present",
+      description: [
+        "Handling full-stack project lifecycles single-handedly, ensuring seamless integration between frontend and backend.",
+        "Fixing UI/UX issues in React.js to improve user experience and interface responsiveness.",
+        "Optimizing backend logic in Python for efficiency, security, and scalability.",
+        "Managing version control via Git/GitHub and performing production deployments on Linux servers."
+      ]
+    },
+    {
+      id: 2,
+      role: "Freelance Python Developer",
+      company: "CraftNDecors",
+      date: "Apr 2024 – Jun 2024",
+      description: [
+        "Integrated Razorpay secure payment gateway, ensuring reliable transaction processing.",
+        "Implemented dynamic cart logic and order history tracking using Flask and AWS DynamoDB.",
+        "Developed backend logic to reflect purchased items dynamically in user profiles."
+      ]
+    },
+    {
+      id: 3,
+      role: "Python Developer Intern",
+      company: "IIT Indore Drishti CPS Foundation",
+      date: "Jan 2024 – Mar 2024",
+      description: [
+        "Developed optimized RESTful APIs using Flask and SQLite for real-time transaction updates.",
+        "Integrated payment webhooks for automated status tracking.",
+        " improved backend performance by 20% through algorithm optimization and code refactoring.",
+        "Collaborated with the frontend team to ensure consistent API responses."
+      ]
+    }
   ];
 
   useEffect(() => {
@@ -31,7 +71,7 @@ const LandingPage = () => {
       setTypingSpeed(isDeleting ? 50 : 100);
 
       if (!isDeleting && text === fullText) {
-        setTimeout(() => setIsDeleting(true), 1500); // Pause before deleting
+        setTimeout(() => setIsDeleting(true), 1500);
       } else if (isDeleting && text === '') {
         setIsDeleting(false);
         setLoopNum(loopNum + 1);
@@ -66,6 +106,7 @@ const LandingPage = () => {
 
         <ul className={`nav-links ${isOpen ? 'nav-active' : ''}`}>
           <li><a href="#home" className="active" onClick={() => setIsOpen(false)}>#home</a></li>
+          <li><a href="#experience" onClick={() => setIsOpen(false)}>#experience</a></li>
           <li><a href="#projects" onClick={() => setIsOpen(false)}>#projects</a></li>
           <li><a href="#about-me" onClick={() => setIsOpen(false)}>#about-me</a></li>
           <li><a href="#skills" onClick={() => setIsOpen(false)}>#skills</a></li>
@@ -76,7 +117,6 @@ const LandingPage = () => {
       {/* Hero Section */}
       <div className="hero-section">
         <div className="hero-text">
-          {/* Animated Badge */}
           <div className="badge">👋 Available for projects</div>
 
           <h1>
@@ -114,6 +154,27 @@ const LandingPage = () => {
               Working with <span className="bold">Vigisolvo</span>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Experience Section */}
+      <div className="experience-section" id="experience">
+        <h2 className="section-title">Professional Experience</h2>
+        <div className="experience-container">
+          {experiences.map((exp) => (
+            <div key={exp.id} className="experience-card">
+              <div className="exp-header">
+                <h3 className="exp-role">{exp.role}</h3>
+                <span className="exp-date">{exp.date}</span>
+              </div>
+              <h4 className="exp-company">@ {exp.company}</h4>
+              <ul className="exp-details">
+                {exp.description.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
 
