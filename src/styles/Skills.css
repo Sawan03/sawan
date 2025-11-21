@@ -1,11 +1,27 @@
 /* --- Section Layout --- */
 .skills-section {
+  position: relative;
   padding: 80px 10%;
-  background-color: #121214; /* Consistent Dark Theme */
+  background-color: #121214;
   color: white;
   font-family: 'Courier New', monospace;
-  position: relative;
   overflow: hidden;
+  z-index: 1;
+}
+
+/* --- Animated Tech Background --- */
+.tech-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.5;
 }
 
 /* --- Header --- */
@@ -19,181 +35,110 @@
 .skills-header h2 {
   font-size: 2rem;
   margin: 0;
+  color: #fff;
 }
 
 .hashtag { color: #8257e6; }
 
 .line {
-  height: 1px;
-  background: #8257e6;
+  height: 2px;
+  background: linear-gradient(90deg, #8257e6, transparent);
   width: 200px;
-  opacity: 0.5;
+  border-radius: 2px;
 }
 
-/* --- Main Container --- */
-.skills-container {
-  display: flex;
-  gap: 60px;
-  align-items: flex-start;
-}
-
-/* --- Left Side: Abstract Art --- */
-.skills-art {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  display: flex; /* Keep it visible on Desktop */
-}
-
-/* Decorative Boxes */
-.art-box {
-  position: absolute;
-  border: 2px solid #8257e6;
-  transition: all 0.5s ease;
-}
-
-.box-large {
-  width: 150px;
-  height: 150px;
-  top: 50px;
-  left: 20px;
-  border-color: #04d361; /* Green */
-  animation: float 6s infinite ease-in-out;
-}
-
-.box-small {
-  width: 80px;
-  height: 80px;
-  bottom: 80px;
-  right: 40px;
-  border-color: #8257e6; /* Purple */
-  animation: float 8s infinite ease-in-out reverse;
-}
-
-.dots-grid {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  top: 100px;
-  right: 20px;
-  background-image: radial-gradient(#555 1px, transparent 1px);
-  background-size: 15px 15px;
-  opacity: 0.3;
-  z-index: -1;
-}
-
-/* Floating Icons inside the art */
-.floating-icon {
-  position: absolute;
-  font-size: 2.5rem;
-  opacity: 0.8;
-}
-
-.python { top: 20px; right: 50px; animation: bounce 4s infinite; }
-.react { bottom: 40px; left: 40px; animation: spin 10s linear infinite; }
-
-/* --- Right Side: Skills Grid --- */
+/* --- Grid Layout --- */
 .skills-grid {
-  flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
 }
 
-/* --- Skill Card --- */
+/* --- Skill Card (Glassmorphism) --- */
 .skill-card {
-  background-color: #1c1c1f;
-  border: 1px solid #29292e;
-  padding: 20px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03); /* Very transparent */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px); /* The blurry glass effect */
+  padding: 25px;
+  border-radius: 15px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
+/* The "Glow" effect on hover based on the variable color */
 .skill-card:hover {
-  border-color: #8257e6;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transform: translateY(-10px);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px -10px var(--accent-color); /* Colored shadow */
 }
 
-.card-header {
+/* Top part of card */
+.card-top {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #29292e;
-  padding-bottom: 10px;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 15px;
 }
 
-.cat-icon { font-size: 1.2rem; }
+.icon-box {
+  font-size: 1.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
 
 .skill-card h3 {
-  font-size: 1.1rem;
-  color: #fff;
+  font-size: 1.2rem;
   margin: 0;
+  color: #e1e1e6;
 }
 
-/* --- Skill Pills (Tags) --- */
-.skill-tags {
+/* --- Skill Pills --- */
+.skill-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .skill-pill {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #a8a8b3;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 6px 12px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
+  padding: 6px 14px;
+  border-radius: 20px; /* Rounded pill shape */
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
   cursor: default;
-  border: 1px solid transparent;
 }
 
+/* Pill Hover Effect */
 .skill-pill:hover {
-  color: #fff;
-  background: rgba(130, 87, 230, 0.2); /* Purple Bg */
-  border-color: #8257e6;
+  background: var(--accent-color); /* Pill turns to category color */
+  color: #000; /* Text turns black for contrast */
+  border-color: var(--accent-color);
+  font-weight: bold;
   transform: scale(1.05);
 }
 
-/* --- Animations --- */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 /* --- Responsive --- */
-@media (max-width: 900px) {
-  .skills-container {
-    flex-direction: column;
+@media (max-width: 768px) {
+  .skills-header {
+    justify-content: center;
   }
-  
-  .skills-art {
-    display: none; /* Hide abstract art on tablet/mobile to save space */
-  }
-  
-  .skills-grid {
-    width: 100%;
-    grid-template-columns: 1fr; /* Single column on small screens */
-  }
-  
   .line { display: none; }
-}
-
-@media (min-width: 600px) and (max-width: 900px) {
+  
   .skills-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+  
+  .skill-card {
+    text-align: left;
   }
 }
