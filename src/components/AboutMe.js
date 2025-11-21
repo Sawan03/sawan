@@ -4,42 +4,76 @@ import '../styles/AboutMe.css';
 const AboutMe = () => {
   return (
     <section className="about-section" id="about-me">
-      <h2><span className="hashtag">#</span>about-me</h2>
+      
+      <div className="about-header">
+        <h2><span className="hashtag">#</span>about-me</h2>
+        <div className="line"></div>
+      </div>
 
       <div className="about-container">
+        
+        {/* Left Side: Text & Cards */}
         <div className="about-text">
-          <h3>Hello, I'm Sawan Rathore!</h3>
-          <p>
-            I'm a <span className="highlight">Full-Stack Developer</span> currently working remotely and open to freelance opportunities. I specialize in crafting scalable, responsive, and dynamic web applications using modern technologies like <strong>React.js, Flask, Node.js, MongoDB</strong>, and more.
-          </p>
-          <p>
-            I’ve completed an internship at <strong>IIT Indore Drishti CPS Foundation</strong>, where I worked on real-time REST APIs and payment integrations. Additionally, I’ve delivered a complete freelancing project for <strong>CraftNDecors</strong> — building features like secure payments, order history tracking, and backend integration.
-          </p>
-          <p>
-            Currently, I’m engaged in multiple projects focused on enhancing user experience, backend optimization, and secure data handling. I’m passionate about clean code, smart design, and meaningful digital products.
+          <h3 className="greeting">
+            Hello, I'm <span className="text-highlight">Sawan Rathore!</span>
+          </h3>
+          
+          <p className="intro-para">
+            I’m a <strong>Full-Stack Python Developer</strong> based in Indore. 
+            I don't just write code; I solve problems. From building scalable backends 
+            to crafting intuitive frontends, I focus on delivering value.
           </p>
 
-          <div className="resume-buttons">
-           
-            <a
-              href="/Sawan Rathore.docx"
-              download="Sawan_Rathore_Resume.docx"
+          {/* Dynamic Experience Cards */}
+          <div className="experience-grid">
+            <div className="exp-card">
+              <span className="exp-icon">🎓</span>
+              <div className="exp-details">
+                <h4>IIT Indore (Drishti CPS)</h4>
+                <p>Internship: Real-time APIs & Payment Gateways</p>
+              </div>
+            </div>
+
+            <div className="exp-card">
+              <span className="exp-icon">💼</span>
+              <div className="exp-details">
+                <h4>CraftNDecors</h4>
+                <p>Freelance: E-commerce w/ Order Tracking</p>
+              </div>
+            </div>
+
+            <div className="exp-card">
+              <span className="exp-icon">🚀</span>
+              <div className="exp-details">
+                <h4>Vigisolvo</h4>
+                <p>Current: Backend Optimization & Security</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Resume Button */}
+          <div className="resume-wrapper">
+            <a 
+              href="/Sawan Rathore.docx" 
+              download="Sawan_Rathore_Resume.docx" 
               className="resume-btn"
             >
-              Download Resume
+              Download Resume <span className="arrow">⬇</span>
             </a>
           </div>
         </div>
 
-        <div className="about-image">
-          <img
-            src="/sawan.jpeg"
-            alt="Sawan Rathore"
-          />
-          <div className="dots top-dots"></div>
-          <div className="dots mid-dots"></div>
-          <div className="circle-highlight"></div>
+        {/* Right Side: Image with Decor */}
+        <div className="about-image-wrapper">
+          <div className="image-border">
+             <img src="/sawan.jpeg" alt="Sawan Rathore" className="profile-pic" />
+          </div>
+          
+          {/* Decorative Elements */}
+          <div className="dots-pattern"></div>
+          <div className="square-box"></div>
         </div>
+
       </div>
     </section>
   );
