@@ -1,27 +1,32 @@
 import React from 'react';
-import '../styles/Projects.css'; // Adjust path as needed
+import '../styles/Projects.css';
 
 const projects = [
-{
-  title: 'BuyLogie',
-  description: 'BuyLogie is a digital marketing agency website built using HTML, CSS, and JavaScript, and deployed via Hostinger hPanel.',
-  techStack: ['HTML', 'CSS', 'JavaScript'],
-  image: '/buylogic.png', // Replace with actual homepage image URL if available
-  live: 'https://buylogie.com/',
-  cached: '#',
-},
- 
+  {
+    title: 'Dot Digital Agency',
+    description: 'A high-performance digital marketing agency platform. Built using pure HTML, CSS, and JS for maximum speed, SEO efficiency, and a pixel-perfect responsive design.',
+    techStack: ['HTML5', 'CSS3', 'JavaScript'],
+    image: '/dotgrow.png', 
+    live: 'https://dotdigitalagency.in/',
+  },
+  {
+    title: 'Sonar Saaj',
+    description: 'A premium e-commerce jewelry store. Features a fully functional shopping cart, secure payment gateways, and dynamic inventory management using WooCommerce.',
+    techStack: ['WordPress', 'WooCommerce', 'E-Commerce'],
+    image: '/sonar.png',
+    live: 'https://sonarsaaj.com/',
+  },
   {
     title: 'Manan',
-    description: 'The website is for creators to showcase their talent and skillsto people  with there creative story.',
-    techStack: ['React.js', 'Express.js', 'Node.js','MongoDB', 'Axios', 'Bootstrap'],
+    description: 'A creative storytelling platform for artists to showcase talent. Built with a robust backend to handle user stories and media securely.',
+    techStack: ['React.js', 'Node.js', 'MongoDB', 'Express'],
     image: '/manan.png',
     live: 'https://manan-nine.vercel.app/',
   },
-    {
-    title: 'Xenturalt Code it solutions',
-    description: 'This is a website for Xenturalt Code it solutions, a company that provides IT solutions and services.',
-    techStack: ['React.js', 'Express.js', 'Node.js','MongoDB', 'Axios', 'Bootstrap'],
+  {
+    title: 'Xenturalt Solutions',
+    description: 'Corporate IT solutions portal. Designed for scalability with a focus on modern UI/UX principles and fast load times.',
+    techStack: ['React.js', 'Express', 'Node.js', 'Axios'],
     image: '/xenturalt.png',
     live: 'https://xenturalt-landing-page-a8gv.vercel.app/',
   }
@@ -30,25 +35,56 @@ const projects = [
 const Projects = () => {
   return (
     <section className="projects-section" id="projects">
+      
+      {/* Header with decorative line */}
       <div className="projects-header">
-        <h2><span className="hashtag">#</span>projects</h2>
-        <a href="#view-all" className="view-all">View all ⟶</a>
+        <div className="header-title">
+          <h2><span className="hashtag">#</span>projects</h2>
+          <div className="line"></div>
+        </div>
+        <a href="https://github.com/Sawan03" target="_blank" rel="noreferrer" className="view-all">
+          View all <span className="arrow">~~&gt;</span>
+        </a>
       </div>
+
+      {/* Projects Grid */}
       <div className="projects-grid">
         {projects.map((project, index) => (
           <div className="project-card" key={index}>
-            <img src={project.image} alt={project.title} className="project-image" />
+            
+            {/* Image Area */}
+            <div className="image-container">
+              <img src={project.image} alt={project.title} className="project-image" />
+              <div className="overlay"></div>
+            </div>
+
+            {/* Tech Stack Tags */}
             <div className="tech-tags">
               {project.techStack.map((tech, idx) => (
                 <span key={idx} className="tech">{tech}</span>
               ))}
             </div>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <div className="buttons">
-              <a href={project.live} className="btn">Live ⬌</a>
-              {project.cached && <a href={project.cached} className="btn cached">Cached ⟶</a>}
+
+            {/* Content */}
+            <div className="card-content">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              
+              {/* Buttons */}
+              <div className="buttons">
+                <a href={project.live} target="_blank" rel="noreferrer" className="btn live-btn">
+                  Live <span className="btn-icon">🔗</span>
+                </a>
+                
+                {/* Cached button logic (optional, only if data exists) */}
+                {project.cached && (
+                  <a href={project.cached} className="btn cached-btn">
+                    Cached <span className="btn-icon">💾</span>
+                  </a>
+                )}
+              </div>
             </div>
+
           </div>
         ))}
       </div>
