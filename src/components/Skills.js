@@ -12,7 +12,7 @@ const skillsData = [
     category: "Frameworks",
     color: "#c792ea", // Purple
     icon: "⚛️",
-    items: ['React.js', 'Node.js', 'Express.js', 'Flask', 'FastAPI', 'SQL Alchemy']
+    items: ['React.js', 'Django', 'Flask', 'SQL Alchemy']
   },
   {
     category: "Databases",
